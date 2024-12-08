@@ -7,9 +7,10 @@ from langchain_openai import ChatOpenAI
 from langgraph.prebuilt import create_react_agent
 
 # Set environment variables
-os.environ["TAVILY_API_KEY"] = "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"
-os.environ["OPENAI_API_KEY"] = "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"
-
+TAVILY_API_KEY = st.secrets["TAVILY_API_KEY"]
+OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
+os.environ["TAVILY_API_KEY"] = TAVILY_API_KEY
+os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 # Streamlit page setup
 st.set_page_config(page_title="Smart Chatbot", layout="centered")
 st.title("Smart Query Response Chatbot")
