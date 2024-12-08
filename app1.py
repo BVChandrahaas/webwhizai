@@ -12,8 +12,8 @@ OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 os.environ["TAVILY_API_KEY"] = TAVILY_API_KEY
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 # Streamlit page setup
-st.set_page_config(page_title="Smart Chatbot", layout="centered")
-st.title("Smart Query Response Chatbot")
+st.set_page_config(page_title="Webscraper AI", layout="centered")
+st.title("Web-Whiz AI Chatbot")
 
 # Initialize conversation history
 if "messages" not in st.session_state:
