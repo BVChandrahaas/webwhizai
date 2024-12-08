@@ -61,4 +61,4 @@ I have used GPT-4o-mini model, you can go with the model of your choice.
 ### max_results: The maximum number of content pieces to retrieve from Tavily. (Default: 3)
 
 # Deployment
-The application is deployed using Streamlit. To deploy the application, simply run the Streamlit script, and the application will be available at http://localhost:8501. 
+The application is deployed using Streamlit. To deploy the application, simply run the app1.py script, and the application will be available at http://localhost:8501. 
