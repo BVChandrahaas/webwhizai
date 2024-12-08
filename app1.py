@@ -15,29 +15,29 @@ os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 st.set_page_config(page_title="Webscraper AI", layout="centered")
 st.title("Web-Whiz AI Chatbot")
 
-# Initialize conversation history
+# Initializing conversation history
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-# User input and submission
+# User input and submit
 query = st.text_input("You: ", key="input")
 submit_button = st.button("Send")
 
 if submit_button and query.strip():
-    # Add user query to conversation history
+    # Adding user query to conversation history
     st.session_state.messages.append({"role": "user", "content": query})
 
-    # Initialize LangChain model and tools
+    # Initializing LangChain model and tools
     model = ChatOpenAI(model="gpt-4o-mini")
     search = TavilySearchResults(max_results=3)
     tools = [search]
     
-    # Create agent executor
+    # Creating agent executor
     agent_executor = create_react_agent(model, tools)
     config = {"configurable": {"thread_id": "abc123"}}
     
     with st.spinner("Processing your query..."):
-        # Pass full chat history to the agent
+        # giving full chat history to the agent
         conversation = [
             HumanMessage(content=msg["content"]) for msg in st.session_state.messages if msg["role"] == "user"
         ]
@@ -45,13 +45,13 @@ if submit_button and query.strip():
         for chunk in agent_executor.stream({"messages": conversation}, config):
             agent_response = chunk
         
-        # Extract final response
+        # obtaining final response
         agent_response = agent_response["agent"]["messages"][0].content
 
-    # Add bot response to conversation history
+    # Attaching bot response to conversation history
     st.session_state.messages.append({"role": "assistant", "content": agent_response})
 
-# Display conversation
+# Displaying conversation
 st.subheader("Conversation")
 for i, message_data in enumerate(st.session_state.messages):
     if message_data["role"] == "user":
