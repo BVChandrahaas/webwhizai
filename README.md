@@ -1,4 +1,4 @@
-# Web-Whiz AI Chatbot [ https://webwhizai.streamlit.app/ ]
+# Web-Whiz AI Chatbot  https://webwhizai.streamlit.app/
 ## Overview
 Web-Whiz AI Chatbot is a conversational AI application built using Streamlit, LangChain, and Tavily. The application allows users to interact with a chatbot that can answer questions and provide information on various topics. The chatbot uses Tavily for web scraping and ranking relevant content, which is then passed to a Large Language Model (LLM) to generate context-aware responses.
 # Technical Components
